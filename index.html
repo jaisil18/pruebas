@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universidad Católica de Trujillo — Admisión 2026</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #ffffff;
+      color: #1a1a2e;
+    }
+
+    /* ═══════════ NAV ═══════════ */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #07294d;
+      padding: 0 40px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      box-shadow: 0 2px 12px rgba(7,41,77,0.2);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: #ffc600;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 900;
+      color: #07294d;
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #ffc600; }
+    .nav-cta {
+      background: #ffc600;
+      color: #07294d;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .nav-cta:hover { background: #e6b200; transform: translateY(-1px); }
+
+    /* ═══════════ HERO ═══════════ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 100%);
+    }
+    .hero-content { max-width: 700px; }
+    .hero-badge {
+      display: inline-block;
+      background: #fef3c7;
+      color: #92400e;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      color: #07294d;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: #ffc600; }
+    .hero p {
+      font-size: 18px;
+      color: #64748b;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: #07294d;
+      color: #ffffff;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover { background: #0a3a6e; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(7,41,77,0.3); }
+    .btn-secondary {
+      background: transparent;
+      color: #07294d;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid #07294d;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: #07294d; color: #ffffff; }
+
+    /* ═══════════ PROGRAMAS ═══════════ */
+    .programs {
+      padding: 80px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 800;
+      color: #07294d;
+      margin-bottom: 12px;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: #64748b;
+      font-size: 16px;
+      margin-bottom: 48px;
+    }
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .program-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 28px;
+      transition: all 0.3s;
+      box-shadow: 0 1px 3px rgba(7,41,77,0.06);
+    }
+    .program-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(7,41,77,0.12);
+      border-color: #ffc600;
+    }
+    .program-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #f0f4f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+    .program-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #07294d;
+      margin-bottom: 8px;
+    }
+    .program-card p {
+      font-size: 14px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    /* ═══════════ CTA ═══════════ */
+    .cta-section {
+      padding: 80px 24px;
+      text-align: center;
+      background: #07294d;
+    }
+    .cta-section h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+    .cta-section p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 32px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: #ffc600;
+      color: #07294d;
+      padding: 14px 40px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .cta-btn:hover { background: #e6b200; transform: translateY(-2px); }
+
+    /* ═══════════ FOOTER ═══════════ */
+    footer {
+      background: #0a1628;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+    }
+    footer a { color: #ffc600; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">U</div>
+      UCT Admisión
+    </a>
+    <div class="nav-links">
+      <a href="#programas">Programas</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <a href="#contacto" class="nav-cta">Inscríbete Ahora</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">🎓 Admisión 2026 Abierta</div>
+      <h1>Tu futuro <span>comienza aquí</span></h1>
+      <p>Forma parte de la Universidad Católica de Trujillo. Programas de pregrado, segunda especialidad, maestría y doctorado con el respaldo de una institución de excelencia.</p>
+      <div class="hero-buttons">
+        <a href="#contacto" class="btn-primary">💬 Habla con un Asesor</a>
+        <a href="#programas" class="btn-secondary">Ver Programas</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMAS -->
+  <section class="programs" id="programas">
+    <h2 class="section-title">Programas Académicos</h2>
+    <p class="section-subtitle">Explora nuestras opciones de formación</p>
+    <div class="programs-grid">
+      <div class="program-card">
+        <div class="program-icon">📚</div>
+        <h3>Pregrado</h3>
+        <p>Carreras profesionales en Ingeniería, Ciencias Sociales, Salud y Administración. Formación integral con enfoque práctico.</p>
+      </div>
+      <div class="program-card">
+        <div class="program-icon">🎓</div>
+        <h3>Segunda Especialidad</h3>
+        <p>Amplía tu horizonte profesional con una segunda especialidad. Programas diseñados para profesionales en activo.</p>
+      </div>
+      <div class="program-card">
+        <div class="program-icon">🏅</div>
+        <h3>Maestría</h3>
+        <p>Programas de posgrado con estándares internacionales. Investigación aplicada y networking profesional.</p>
+      </div>
+      <div class="program-card">
+        <div class="program-icon">🏆</div>
+        <h3>Doctorado</h3>
+        <p>Formación de investigadores de alto nivel. Contribuye al avance del conocimiento en tu área de especialización.</p>
+      </div>
+      <div class="program-card">
+        <div class="program-icon">💻</div>
+        <h3>Virtual</h3>
+        <p>Aprende desde cualquier lugar con nuestros programas en modalidad virtual. Misma calidad, máxima flexibilidad.</p>
+      </div>
+      <div class="program-card">
+        <div class="program-icon">🔄</div>
+        <h3>Semipresencial</h3>
+        <p>Combina lo mejor de ambos mundos. Clases presenciales complementadas con experiencia virtual.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contacto">
+    <h2>¿Listo para comenzar?</h2>
+    <p>Haz clic en el botón de abajo y un asesor te guiará en todo el proceso de admisión.</p>
+    <a href="https://wa.me/51969721313" class="cta-btn" target="_blank">📱 Contactar por WhatsApp</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Universidad Católica de Trujillo — <a href="https://uct.edu.pe">uct.edu.pe</a></p>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- WIDGET WEBCHAT UCT — No tocar esta línea   -->
+  <!-- ═══════════════════════════════════════════ -->
+  <script src="https://connect.uct.edu.pe/widget.js"
+    data-channel-key="83258c39-b0ab-4aad-9810-3f0048c2c34a"
+    data-api-key="wck_pmyfvOw2LvYGoajyUDiqSZTD8o29f40G"
+    data-title="¿Te ayudamos?"
+    data-subtitle="Admisión UCT"
+    data-color="#07294d">
+  </script>
+
+</body>
+</html>
